@@ -7,11 +7,11 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { styled as muiStyler } from '@mui/material/styles';
 
 const Container = styled.div`
-    height: 60px;
+    height: 80px;
 `
 
 const Wrapper = styled.div`
-padding: 10px 20px;
+padding: 0px 10px;
 display: flex;
 align-items: center;
 justify-content: space-between;
