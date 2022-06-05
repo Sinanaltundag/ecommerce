@@ -68,7 +68,7 @@ const Navbar = () => {
 </SearchContainer>
     </NavBox>
     <NavBox>
-    <Logo>ELIT</Logo>
+    <Logo>ELITE</Logo>
     </NavBox>
     <NavBox align="flex-end">
     <MenuItem>REGISTER</MenuItem>
