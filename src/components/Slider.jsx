@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutlined";
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { useState } from "react";
@@ -22,8 +22,8 @@ const Arrow = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: ${(props) => props.direction === "left" && "10px"};
-  right: ${(props) => props.direction === "right" && "10px"};
+  left: ${(props) => props.left && "10px"};
+  right: ${(props) => props.right && "10px"};
   margin: auto;
   cursor: pointer;
   opacity: 0.5;
@@ -71,7 +71,7 @@ const Button = styled.button`
 `;
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-
+// usestate ile 0 dan başlattığımız slide indexi handleclick ile direction parametresine göre değiştiriyoruz. Bu index sayısını slide elementinin parentine props olarak gönderip styled bölümünde translateX değerini değiştiriyoruz. 
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex === 0 ? sliderItems.length - 1 : slideIndex - 1);
@@ -82,7 +82,7 @@ const Slider = () => {
 
   return (
     <Container>
-      <Arrow direction="left" onClick={() => handleClick("left")}>
+      <Arrow left onClick={() => handleClick("left")}>
         <ArrowCircleLeftOutlinedIcon />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
@@ -99,7 +99,7 @@ const Slider = () => {
           </Slide>
         ))}
       </Wrapper>
-      <Arrow direction="right" onClick={() => handleClick("right")}>
+      <Arrow right onClick={() => handleClick("right")}>
         <ArrowCircleRightOutlinedIcon />
       </Arrow>
     </Container>

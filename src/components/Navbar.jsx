@@ -11,26 +11,17 @@ const Container = styled.div`
 `
 
 const Wrapper = styled.div`
-padding: 0px 10px;
+padding: 10px 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
 `
-const Left = styled.div`
-flex: 1;
-display: flex;
-align-items: center;
-`
-const Center = styled.div`
-flex: 1;
-align-items: center;
-text-align: center;
-`
-const Right = styled.div`
+
+const NavBox = styled.div`
 display: flex;
 align-items: center;
 flex: 1;
-justify-content: flex-end;
+justify-content:${props=>props.align?props.align:'center'};
 `
 
 const Language = styled.span`
@@ -68,18 +59,18 @@ const Navbar = () => {
   return (
     <Container>
     <Wrapper>
-    <Left>
+    <NavBox align="flex-start">
 <Language>EN</Language>
 <SearchContainer>
 <Input/>
 <NavSearch/>
 
 </SearchContainer>
-    </Left>
-    <Center>
+    </NavBox>
+    <NavBox>
     <Logo>ELIT</Logo>
-    </Center>
-    <Right>
+    </NavBox>
+    <NavBox align="flex-end">
     <MenuItem>REGISTER</MenuItem>
     <MenuItem>LOGIN</MenuItem>
     <MenuItem>
@@ -87,7 +78,7 @@ const Navbar = () => {
     <ShoppingCartOutlinedIcon />
   </Badge>
     </MenuItem>
-    </Right>
+    </NavBox>
     </Wrapper>
     </Container>
   )
