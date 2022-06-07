@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 import media from "../helpers/responsive"
 
@@ -46,7 +47,7 @@ const CategoryItem = ({title,img}) => {
     <Image src={img} alt={title}/>
     <Info>
     <Title>{title}</Title>
-    <Button>Shop Now</Button>
+    <Button><Link style={{textDecoration:"none"}} to={'/productlist'}>Shop Now</Link> </Button>
     </Info>
 
     </Container>
