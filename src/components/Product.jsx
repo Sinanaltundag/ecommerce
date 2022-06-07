@@ -29,6 +29,7 @@ background-color: #faf8f6;
 position: relative;
 &:hover ${Info} {
 opacity: 1;
+
 }
 `
 const Circle= styled.div`
@@ -64,7 +65,6 @@ cursor: pointer;
 
 const Product = ({img}) => {
   return (
-    <div>
 <Container>
     <Circle/>
     <Image src={img} />
@@ -80,7 +80,6 @@ const Product = ({img}) => {
         </Icon>
     </Info>
 </Container>
-    </div>
   )
 }
 

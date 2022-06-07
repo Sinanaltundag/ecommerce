@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import media from "../helpers/responsive"
 
 
 const Container = styled.div`
@@ -11,6 +12,9 @@ const Image = styled.img`
 width: 100%;
 height: 100%;
 object-fit: cover;
+${media.xs`
+height: 30vh;
+`}
 `
 const Info = styled.div`
 position: absolute;

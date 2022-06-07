@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { popularProducts } from "../helpers/data"
+import media from "../helpers/responsive"
 import Product from "./Product"
 
 
@@ -8,6 +9,7 @@ padding: 1.2rem;
 display: flex;
 flex-wrap: wrap;
 justify-content: space-between;
+
 `
 
 const Products = () => {

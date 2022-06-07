@@ -1,14 +1,22 @@
 import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from "@mui/icons-material";
 import styled from "styled-components";
+import media from "../helpers/responsive";
 
 const Container = styled.div`
   display: flex;
+  ${media.xs`
+  flex-direction: column;
+  text-align: center;
+`}
 `;
 const InnerContainer = styled.div`
   flex: 1;
   padding: 20px;
   display: ${props=>props.column&&'flex'};
   flex-direction: ${props=>props.column&&'column'};
+  ${media.xs`
+background-color: ${props=>props.column||'#f4f4f4'};
+`}
 `;
 
 const Logo = styled.h1``;
@@ -19,6 +27,12 @@ const Desc = styled.p`
 
 const SocialContainer = styled.div`
   display: flex;
+  
+  ${media.xs`
+  align-items: center;
+  justify-content: space-between;
+
+  `}
 `;
 
 const SocialIcon = styled.div`

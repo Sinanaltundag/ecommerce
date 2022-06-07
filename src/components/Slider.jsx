@@ -3,6 +3,7 @@ import ArrowCircleLeftOutlinedIcon from "@mui/icons-material/ArrowCircleLeftOutl
 import ArrowCircleRightOutlinedIcon from "@mui/icons-material/ArrowCircleRightOutlined";
 import { useState } from "react";
 import { sliderItems } from "../helpers/data";
+import media from "../helpers/responsive";
 
 const Container = styled.div`
   width: 100%;
@@ -10,6 +11,10 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+  ${media.xs`
+  height: 50vh;
+
+`}
 `;
 const Arrow = styled.div`
   width: 3rem;
@@ -42,6 +47,10 @@ const Slide = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: #${(props) => props.bg};
+  ${media.xs`
+  height: 50vh;
+position: relative;
+`}
 `;
 const ImgContainer = styled.div`
   flex: 1;
@@ -50,24 +59,46 @@ const ImgContainer = styled.div`
 const InfoContainer = styled.div`
   flex: 1;
   padding: 50px;
+  ${media.xs`
+position: absolute;
+text-shadow: 0 0 10px #000;
+text-align: center;
+`}
 `;
 const Image = styled.img`
   height: 80%;
+  ${media.xs`
+  height: 90%;
+  
+  `}
 `;
 const Title = styled.h1`
   font-size: 5rem;
+  ${media.xs`
+color: white;
+font-size: 2rem;
+`}
 `;
 const Desc = styled.p`
   margin: 50px 0;
   font-size: 1.2rem;
   font-weight: bold;
   letter-spacing: 3px;
+  ${media.xs`
+color: white;
+font-size: 1rem;
+margin: 0.5rem;
+`}
 `;
 const Button = styled.button`
   padding: 10px;
   font-size: 1.2rem;
   background-color: transparent;
   cursor: pointer;
+  ${media.xs`
+color: white;
+text-shadow: 0 0 10px #000;
+`}
 `;
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);

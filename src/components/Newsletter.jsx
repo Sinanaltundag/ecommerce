@@ -1,5 +1,6 @@
 import { Send } from "@mui/icons-material"
 import styled from "styled-components"
+import media from "../helpers/responsive"
 
 const Container = styled.div`
 height: 60vh;
@@ -8,6 +9,9 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+${media.xs`
+height: auto;
+`}
 
 `
 const Title = styled.h1`
@@ -18,6 +22,11 @@ const Desc = styled.div`
 font-size: 1.5rem;
 font-weight: 300;
 margin-bottom: 1.2rem;
+${media.xs`
+font-size: 1.2rem;
+text-align: center;
+margin: 0 1.2rem 1rem;
+`}
 `
 const InputContainer = styled.div`
 width: 50%;
@@ -26,6 +35,9 @@ display: flex;
 justify-content: space-between;
 border: 1px solid lightgray;
 border-radius:0  5px 5px 0;
+${media.xs`
+width: 80%;
+`}
 `
 const Input = styled.input`
 border: none;
