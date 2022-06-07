@@ -4,7 +4,7 @@ import media from "../helpers/responsive";
 
 const Container = styled.div`
   display: flex;
-  ${media.xs`
+  ${media.sm`
   flex-direction: column;
   text-align: center;
 `}
@@ -14,8 +14,12 @@ const InnerContainer = styled.div`
   padding: 20px;
   display: ${props=>props.column&&'flex'};
   flex-direction: ${props=>props.column&&'column'};
+  ${media.sm`
+background-color: ${props=>props.links||'#f4f4f4'};
+`}
   ${media.xs`
-background-color: ${props=>props.column||'#f4f4f4'};
+background-color: ${props=>props.column&&'white'};
+display: ${props=>props.links&&'none'};
 `}
 `;
 
@@ -28,9 +32,9 @@ const Desc = styled.p`
 const SocialContainer = styled.div`
   display: flex;
   
-  ${media.xs`
+  ${media.sm`
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 
   `}
 `;
@@ -100,7 +104,7 @@ const Footer = () => {
         </SocialIcon>
       </SocialContainer>
     </InnerContainer>
-    <InnerContainer>
+    <InnerContainer links>
       <Title>Useful Links</Title>
       <List>
         <ListItem>Home</ListItem>

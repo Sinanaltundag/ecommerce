@@ -7,12 +7,16 @@ import media from "../helpers/responsive";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 100px);
   display: flex;
   position: relative;
   overflow: hidden;
   ${media.xs`
   height: 50vh;
+
+`}
+  ${media.xl`
+  height: 80vh;
 
 `}
 `;
@@ -49,6 +53,10 @@ const Slide = styled.div`
   background-color: #${(props) => props.bg};
   ${media.xs`
   height: 50vh;
+
+`}
+  ${media.lg`
+
 position: relative;
 `}
 `;
@@ -60,9 +68,15 @@ const InfoContainer = styled.div`
   flex: 1;
   padding: 50px;
   ${media.xs`
+
+text-align: center;
+`}
+  ${media.lg`
 position: absolute;
 text-shadow: 0 0 10px #000;
 text-align: center;
+width: 100%;
+color: white;
 `}
 `;
 const Image = styled.img`
@@ -71,11 +85,15 @@ const Image = styled.img`
   height: 90%;
   
   `}
+  ${media.xl`
+  width: 100%;
+  object-fit: cover;
+  `}
 `;
 const Title = styled.h1`
   font-size: 5rem;
   ${media.xs`
-color: white;
+
 font-size: 2rem;
 `}
 `;
@@ -95,7 +113,7 @@ const Button = styled.button`
   font-size: 1.2rem;
   background-color: transparent;
   cursor: pointer;
-  ${media.xs`
+  ${media.lg`
 color: white;
 text-shadow: 0 0 10px #000;
 `}

@@ -9,7 +9,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-${media.xs`
+
+${media.sm`
+padding: 0 1rem 1rem;
+text-align: center;
 height: auto;
 `}
 
@@ -24,8 +27,6 @@ font-weight: 300;
 margin-bottom: 1.2rem;
 ${media.xs`
 font-size: 1.2rem;
-text-align: center;
-margin: 0 1.2rem 1rem;
 `}
 `
 const InputContainer = styled.div`

@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import background from "../assets/images/login_girl.jpg";
+import media from "../helpers/responsive";
 
 
 const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 80px);
   background: linear-gradient(
       rgba(255, 255, 255, 0.4),
       rgba(255, 255, 255, 0.6)
     ),
-    url(${background}) center;
+    url(${background}) right;
   background-repeat: no-repeat;
-  background-position: right;
   background-color: #5CD0C2;
   display: flex;
   align-items: center;
@@ -24,6 +24,10 @@ const Wrapper = styled.div`
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  ${media.md`
+width: 75%;
+
+`}
 `;
 
 const Title = styled.h1`
@@ -34,6 +38,9 @@ const Title = styled.h1`
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
+  ${media.xs`
+flex-direction: column;
+`}
 `;
 
 const Input = styled.input`
