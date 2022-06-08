@@ -15,10 +15,6 @@ const Container = styled.div`
   height: 50vh;
 
 `}
-  ${media.xl`
-  height: 80vh;
-
-`}
 `;
 const Arrow = styled.div`
   width: 3rem;
@@ -41,7 +37,7 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
-  transform: translateX(${props=>props.slideIndex*-100}vw);
+  transform: translateX(${(props) => props.slideIndex * -100}vw);
   transition: all 1.5s ease-in-out;
 `;
 
@@ -120,7 +116,7 @@ text-shadow: 0 0 10px #000;
 `;
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
-// usestate ile 0 dan başlattığımız slide indexi handleclick ile direction parametresine göre değiştiriyoruz. Bu index sayısını slide elementinin parentine props olarak gönderip styled bölümünde translateX değerini değiştiriyoruz. 
+  // usestate ile 0 dan başlattığımız slide indexi handleclick ile direction parametresine göre değiştiriyoruz. Bu index sayısını slide elementinin parentine props olarak gönderip styled bölümünde translateX değerini değiştiriyoruz.
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex === 0 ? sliderItems.length - 1 : slideIndex - 1);

@@ -13,8 +13,11 @@ const Image = styled.img`
 width: 100%;
 height: 100%;
 object-fit: cover;
+${media.sm`
+height: 40vh;
+`}
 ${media.xs`
-height: 30vh;
+height: 33vh;
 `}
 `
 const Info = styled.div`
@@ -39,6 +42,13 @@ background-color: #fff7f7;
 color: gray;
 cursor: pointer;
 font-weight: 600;
+font-size: 1.2rem;
+transition: all 0.3s ease-in-out;
+&:hover{
+    background-color: #008080;
+    color: white;
+    box-shadow: 0 0 0.5rem #008080;
+}
 `
 
 const CategoryItem = ({title,img}) => {
@@ -47,7 +57,7 @@ const CategoryItem = ({title,img}) => {
     <Image src={img} alt={title}/>
     <Info>
     <Title>{title}</Title>
-    <Button><Link style={{textDecoration:"none"}} to={'/productlist'}>Shop Now</Link> </Button>
+    <Link style={{textDecoration:"none"}} to={'/productlist'}><Button>Shop Now</Button></Link> 
     </Info>
 
     </Container>

@@ -6,7 +6,7 @@ import CategoryItem from "./CategoryItem"
 const Container= styled.div`
 display: flex;
 padding: 20px;
-${media.xs`
+${media.sm`
 flex-direction: column;
 padding: 0px;
 `}

@@ -40,7 +40,7 @@ flex-direction: column;
 const Language = styled.span`
   font-size: 0.9rem;
   cursor: pointer;
-  ${media.xs`
+  ${media.sm`
 display: none;
 `}
 `;
@@ -51,13 +51,11 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 1.5rem;
   padding: 0.3rem;
-  ${media.xs`
 
-`}
 `;
 const Input = styled.input`
   border: none;
-  ${media.xs`
+  ${media.sm`
 width: 70px;
 `}
 `;
