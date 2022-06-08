@@ -1,15 +1,21 @@
 import { Add, Remove } from "@mui/icons-material";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Newsletter from "../components/Newsletter";
+
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import media from "../helpers/responsive";
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+   ${media.sm`
+    flex-direction: column;
+    align-items: center;
+   padding: 10px;
+
+    `}
 `;
 
 const ImgContainer = styled.div`
@@ -20,6 +26,10 @@ const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
+  ${media.sm`
+    height: auto;
+    width: 100%;
+    `}
 `;
 
 const InfoContainer = styled.div`
@@ -78,6 +88,10 @@ const AddContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  ${media.sm`
+    width: 100%;
+    `}
 `;
 
 const AmountContainer = styled.div`
@@ -104,21 +118,31 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
 
-  &:hover{
-      background-color: #f8f4f4;
+  &:hover {
+    background-color: #f8f4f4;
   }
 `;
 
 const Product = () => {
+  const [amount, setAmount] = useState(1);
+  const [color, setColor] = useState("black");
+  const [size, setSize] = useState("XS");
+
+  const location = useLocation();
+  const { product } = location.state;
+
+  const handleSize = (e) => {
+    setSize(e.target.value);
+  };
+
   return (
     <Container>
-
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title>{product.title}</Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
@@ -126,17 +150,17 @@ const Product = () => {
             tristique tortor pretium ut. Curabitur elit justo, consequat id
             condimentum ac, volutpat ornare.
           </Desc>
-          <Price>$ 20</Price>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              <FilterTitle >Color</FilterTitle>
+              <FilterColor color="black" onClick={()=>setColor("black")}/>
+              <FilterColor color="darkblue" onClick={()=>setColor("darkblue")}/>
+              <FilterColor color="gray" onClick={()=>setColor("gray")}/>
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
+              <FilterSize onChange={handleSize}>
                 <FilterSizeOption>XS</FilterSizeOption>
                 <FilterSizeOption>S</FilterSizeOption>
                 <FilterSizeOption>M</FilterSizeOption>
@@ -147,11 +171,11 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => amount > 1 && setAmount(amount - 1)} />
+              <Amount>{amount}</Amount>
+              <Add onClick={() => setAmount(amount + 1)} />
             </AmountContainer>
-            <Button>ADD TO CART</Button>
+            <Link to="/cart" state={{product,color,size,amount}}> <Button>ADD TO CART</Button></Link>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

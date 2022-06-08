@@ -46,38 +46,64 @@ export const sliderItems = [
   export const popularProducts = [
     {
       id:1,
+      title: "HMK SHIRT",
       img:"https://cdn.pixabay.com/photo/2017/11/02/14/27/model-2911332_960_720.jpg",
+      price: "20.00",
+      category: "shirt",
       pixabay:"https://pixabay.com/api/?key=26174232-f956318e8a670396f67464227&id=2911332"
     },
     {
       id:2,
+      title: "HMK Business Jacket",
       img:"https://cdn.pixabay.com/photo/2017/08/10/08/00/suit-2619784_960_720.jpg",
+      price: "30.00",
+      category: "jacket",
       pixabay:"https://pixabay.com/api/?key=26174232-f956318e8a670396f67464227&id=2619784"
     },
     {
       id:3,
+      title: "Hawaian T-Shirt",
       img:"https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+      price: "15.00",
+      category: "shirt",
     },
     {
       id:4,
+      title: "BUS-PAT-BURTE",
       img:"https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
+      price: "25.00",
+      category: "dress",
     },
     {
       id:5,
+      title: "Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle",
       img:"https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+      price: "15.00",
+      category: "bag",
     },
     {
       id:6,
+      title: "HAKURA Cotton Jacket",
+      price: "25.00",
+      category: "jacket",
       img:"https://cdn.pixabay.com/photo/2017/08/01/11/48/woman-2564660_960_720.jpg",
       pixabay:"https://pixabay.com/api/?key=26174232-f956318e8a670396f67464227&id=2564660"
+
     },
     {
       id:7,
+      title: "HMK Outdoor Shoe",
       img:"https://cdn.pixabay.com/photo/2020/03/02/12/13/accessories-4895580_960_720.jpg",
+      price: "25.00",
+      category: "shoe",
         pixabay:"https://pixabay.com/api/?key=26174232-f956318e8a670396f67464227&id=4895580",
     },
     {
       id:8,
+      title: "Women-Jacket-PNG-High-Quality",
       img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+      price:"15.00",
+      category: "jacket"
+
     },
   ]

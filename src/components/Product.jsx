@@ -15,6 +15,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 transition: all 0.5s ease-in-out;
+border-radius: 50%;
 `
 
 const Container= styled.div`
@@ -27,9 +28,11 @@ align-items: center;
 justify-content: center;
 background-color: #faf8f6;
 position: relative;
+border-radius: 1.5rem;
+//dinamik belirlenen child componentin stilini değiştirme
 &:hover ${Info} {
 opacity: 1;
-
+border-radius: 1.5rem;
 }
 `
 const Circle= styled.div`
@@ -63,17 +66,17 @@ cursor: pointer;
 }
 `
 
-const Product = ({img}) => {
+const Product = ({product}) => {
   return (
 <Container>
     <Circle/>
-    <Image src={img} />
+    <Image src={product.img} />
     <Info>
         <Icon>
           <Link to={"/cart"} style={{textDecoration: "none"}}><ShoppingCartOutlined/></Link>  
         </Icon>
         <Icon>
-           <Link to={"/product"} style={{textDecoration: "none"}}><SearchOutlined/></Link> 
+           <Link to={`/product/${product.id}`} style={{textDecoration: "none"}} state={{product:product}}><SearchOutlined/></Link> 
         </Icon>
         <Icon>
             <FavoriteBorderOutlined/>

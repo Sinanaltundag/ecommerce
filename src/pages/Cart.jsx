@@ -1,8 +1,8 @@
 import { Add, Remove } from "@mui/icons-material";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
+import media from "../helpers/responsive";
 
 const Container = styled.div``;
 
@@ -20,6 +20,10 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  ${media.sm`
+    flex-direction: column;
+
+    `}
 `;
 
 const TopButton = styled.button`
@@ -33,16 +37,27 @@ const TopButton = styled.button`
 `;
 
 const TopTexts = styled.div`
+${media.sm`
+  margin: 10px ;
+  `}
 `;
 const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
-  margin: 0px 10px;
+  margin: 10px 10px;
+
 `;
 
 const Bottom = styled.div`
   display: flex;
   justify-content: space-between;
+
+${media.md`
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  `}
 
 `;
 
@@ -147,13 +162,17 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+
+  const location = useLocation();
+  const { product, size, color, amount } = location.state;
+
   return (
     <Container>
 
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+         <Link to="/"> <TopButton>CONTINUE SHOPPING</TopButton></Link>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
@@ -164,27 +183,27 @@ const Cart = () => {
           <Info>
             <Product>
               <ProductDetail>
-                <Image src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1614188818-TD1MTHU_SHOE_ANGLE_GLOBAL_MENS_TREE_DASHERS_THUNDER_b01b1013-cd8d-48e7-bed9-52db26515dc4.png?crop=1xw:1.00xh;center,top&resize=480%3A%2A" />
+                <Image src={product.img} />
                 <Details>
                   <ProductName>
-                    <b>Product:</b> JESSIE THUNDER SHOES
+                    <b>Product:</b> {product.title}
                   </ProductName>
                   <ProductId>
                     <b>ID:</b> 93813718293
                   </ProductId>
-                  <ProductColor color="black" />
+                  <ProductColor color={color} />
                   <ProductSize>
-                    <b>Size:</b> 37.5
+                    <b>Size:</b> {size}
                   </ProductSize>
                 </Details>
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
                   <Add />
-                  <ProductAmount>2</ProductAmount>
+                  <ProductAmount>{amount}</ProductAmount>
                   <Remove />
                 </ProductAmountContainer>
-                <ProductPrice>$ 30</ProductPrice>
+                <ProductPrice>$ {product.price}</ProductPrice>
               </PriceDetail>
             </Product>
             <Hr />

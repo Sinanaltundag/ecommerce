@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { popularProducts } from "../helpers/data"
-import media from "../helpers/responsive"
 import Product from "./Product"
 
 
@@ -16,7 +15,7 @@ const Products = () => {
   return (
     <Container>
 {popularProducts.map(product => (
-    <Product key={product.id} {...product} />
+    <Product key={product.id} product={product} />
 ))}
     </Container>
   )
