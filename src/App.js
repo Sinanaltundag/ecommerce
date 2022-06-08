@@ -13,8 +13,7 @@ import Register from './pages/Register';
 
 function App() {
   const location = useLocation();
-  const disabled = (location.pathname=== "/login" || location.pathname === "/register") 
-  const home = (location.pathname=== "/login")
+  const disabled = (location.pathname=== "/login" || location.pathname === "/register" || location.pathname === "/cart");
   
   return (
     <div className="App">
@@ -24,15 +23,14 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/login" element={<Login disabled={disabled} />} />
       <Route path="/register" element={<Register disabled={disabled}/>} />
-      <Route path="/product" element={<Product disabled={disabled}/>} />
+      <Route path="/product/:id" element={<Product disabled={disabled}/>} />
       <Route path="/productlist" element={<ProductList products={<Products/>} />} />
       <Route path="/cart" element={<Cart/>} />
     </Routes>
 
-    {home&&
+    {disabled||
       <>
 
-    <Products/>
     <Newsletter/>
     <Footer/>
       </>}
